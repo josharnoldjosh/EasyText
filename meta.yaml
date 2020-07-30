@@ -1,0 +1,35 @@
+{% set name = "EasyText" %}
+{% set version = "0.0.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: "https://github.com/josharnoldjosh/EasyText.git"
+
+build:
+  number: 0
+  script: "$PYTHON -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - EasyText
+
+about:
+  home: "https://josharnoldjosh.github.io"
+  license: GPLv3
+  license_family: GPL3
+  license_file: LICENSE
+  summary: "A set of basic functions for quickly saving and loading textfiles."
+
+extra:
+  recipe-maintainers:
+    - "Josh Arnold"
